@@ -1,20 +1,42 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { NavigationContainer } from "@react-navigation/native";
+import { StatusBar } from "expo-status-bar";
+import { StyleSheet, Text, View } from "react-native";
+import tw from "tailwind-react-native-classnames";
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import HomeScreen from './screens/HomeScreen'
+import DataContextProvider from "./context/DataContext";
 
-export default function App() {
+const Stack = createNativeStackNavigator();
+function App() {
+  {
+    /*<View style={tw`flex-1  bg-gray-800  justify-center items-center`>*/
+  }
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <DataContextProvider>
+      <NavigationContainer>
+        <Stack.Navigator>
+          <Stack.Screen name='HomeScreen' component={HomeScreen} options={{
+            title: 'Create a Task',
+            headerStyle: {
+              backgroundColor: "#222f3e",
+            },
+            headerTintColor: "#fff",
+
+            headerTitleStyle: {
+              color: "#ffffff",
+            },
+          }} />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </DataContextProvider>
   );
 }
-
+export default App;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: "#fff",
+    alignItems: "center",
+    justifyContent: "center",
   },
 });
