@@ -8,39 +8,24 @@ import CharactersList from "./CharactersList";
 const Search = () => {
     const [text, setText] = useState(null);
     const { addData, data } = useContext(DataContext);
-    const [name, setName] = useState(null);
+   
     const filter = name => {
         var result = data.find(data=>{
             if(data.name.toLowerCase().includes(name.toLowerCase())){
                 return data;
             }
         })
-        addData(result )
+        addData(result)
     }
 
-    const handleChanges = e =>{
-        setText(e.target.value)
-        filter(e.target.value)
 
-    }
         return (
-        <View style={tw`flex items-center justify-center m-10`}>
-            <TextInput
-                style={tw`bg-white w-72 h-14  rounded-2xl`}
-                editable
-                maxLength={30}
-                placeholder='Search a character'
-                onChangeText = {handleChanges}
-            />
-            
-            {text ==null?
-            <Api/>
-            : <CharactersList data ={data}/>
-
-            }
+        <View></View>
 
             
-        </View>
+
+            
+       
     );
 };
 

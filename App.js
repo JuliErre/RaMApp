@@ -16,7 +16,7 @@ function App() {
       <NavigationContainer>
         <Stack.Navigator>
           <Stack.Screen name='HomeScreen' component={HomeScreen} options={{
-            title: 'Create a Task',
+            title: 'Rick and Morty',
             headerStyle: {
               backgroundColor: "#222f3e",
             },

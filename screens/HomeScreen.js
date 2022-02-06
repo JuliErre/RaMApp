@@ -7,10 +7,9 @@ import tw from 'tailwind-react-native-classnames';
 
 const HomeScreen = () => {
   return (
-    <View style={tw`bg-gray-800 `}>
+    <View style={tw`bg-gray-800 flex min-h-full `}>
       {/*<Text style={tw`text-center font-bold text-3xl `}>Personajes</Text>*/}
-      <Search />
-      
+      <Api/>
     </View>
   );
 };
