@@ -1,6 +1,6 @@
 import { View, Text, TextInput } from "react-native";
 import React, { useContext, useState, useEffect } from "react";
-import tw from "tailwind-react-native-classnames";
+import tw from "twrnc";
 import { DataContext } from "../context/DataContext";
 import Api from "./Api";
 import CharactersList from "./CharactersList";

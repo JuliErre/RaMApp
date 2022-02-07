@@ -1,6 +1,6 @@
-import { View, Text, FlatList, TextInput } from "react-native";
+import { View, Text, FlatList, TextInput, ScrollView } from "react-native";
 import React, { useEffect, useState, useContext } from "react";
-import tw from "tailwind-react-native-classnames";
+import tw from "twrnc";
 import CharactersList from "./CharactersList";
 import { DataContext } from "../context/DataContext";
 
@@ -24,7 +24,8 @@ const Api = () => {
     }, [text]);
 
     return (
-        <>
+        <ScrollView >
+
             <View style={tw`flex items-center justify-center m-10`}>
                 <TextInput
                     style={tw`bg-white w-72 h-14  rounded-2xl`}
@@ -34,16 +35,17 @@ const Api = () => {
                     onChangeText={(name) => {
                         setText(name);
                     }}
-                />
+                    />
             </View>
             <View>
                 {text.length == 0 ? (
                     <CharactersList data={data} />
-                ) : (
-                    <CharactersList data={filterCharacters} />
-                )}
+                    ) : (
+                        <CharactersList data={filterCharacters} />
+                        )}
             </View>
-        </>
+        </ScrollView>
+        
     );
 };
 
