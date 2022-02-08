@@ -19,11 +19,14 @@ function App() {
             title: 'Rick and Morty',
             headerStyle: {
               backgroundColor: "#222f3e",
+              
             },
             headerTintColor: "#fff",
 
             headerTitleStyle: {
               color: "#ffffff",
+              
+              
             },
           }} />
         </Stack.Navigator>
