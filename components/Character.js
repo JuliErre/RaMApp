@@ -6,17 +6,18 @@ const Character = ({ character }) => {
 
     return (
 
-        <View style={tw`pt-10 items-center  justify-center `}>
-            <View>
-                <Text style={tw`text-red-500 font-bold text-xl text-left`}>{character.name}</Text>
-                <Text style={tw`text-blue-500 font-bold text-base text-left`}>{character.species}</Text>
-            </View>
+        <View style={tw` bg-gray-700 mb-10 w-90 h-90 items-start rounded-xl overflow-hidden shadow-xl `}>
             <Image
                 source={{
                     uri: character.image
                 }}
-                style={tw`rounded-full h-60 w-60`}
+                style={tw`h-50 w-full`}
             />
+            <View style={tw`mt-10 ml-5`}>
+                <Text style={tw`text-white font-bold text-3xl text-left `}> {character.name}</Text>
+                <Text style={tw`text-white font-bold text-xl text-left`}> {character.status}</Text>
+                
+            </View>
         </View>
     );
 };

@@ -1,19 +1,20 @@
-import { View, Text, FlatList, TextInput, ScrollView } from "react-native";
+import { View, Text, FlatList, TextInput, ScrollView, Button } from "react-native";
 import React, { useEffect, useState, useContext } from "react";
 import tw from "twrnc";
 import CharactersList from "./CharactersList";
 import { DataContext } from "../context/DataContext";
+import Buttons from "./Buttons";
 
 const Api = () => {
-    const { addData, data } = useContext(DataContext);
+    const { addData, data, getData,info } = useContext(DataContext);
     const [filterCharacters, setFilterCharacters] = useState([]);
     const [text, setText] = useState([]);
-
+    const Api = "https://rickandmortyapi.com/api/character";
+   
+   
     useEffect(() => {
-        fetch("https://rickandmortyapi.com/api/character")
-            .then((res) => res.json())
-            .then((res) => addData(res.results))
-            .catch((err) => console.log(err));
+        getData(Api);
+        
     }, []);
 
     useEffect(() => {
@@ -23,9 +24,10 @@ const Api = () => {
         setFilterCharacters(searchCharacters);
     }, [text]);
 
+    
+
     return (
         <ScrollView >
-
             <View style={tw`flex items-center justify-center m-10`}>
                 <TextInput
                     style={tw`bg-white w-72 h-14  rounded-2xl`}
@@ -37,6 +39,7 @@ const Api = () => {
                     }}
                     />
             </View>
+                    <Buttons/>
             <View>
                 {text.length == 0 ? (
                     <CharactersList data={data} />

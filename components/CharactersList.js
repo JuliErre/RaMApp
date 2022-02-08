@@ -5,7 +5,7 @@ import tw from "twrnc";
 
 const CharactersList = ({data}) => {
   return (
-    <View style={tw`  h-full`} >
+    <View style={tw`flex  items-center  h-full`} >
 
       {
         data.map((character=> <Character key={character.id} character={character}/>))
